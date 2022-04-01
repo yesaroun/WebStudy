@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test019.html</title>
+</head>
+<body>
+
+<div>
+	<h1>체크박스 만들기</h1>
+	<hr>
+</div>
+
+<div>
+	<form>
+		<p>오늘 점심으로 먹고 싶은 메뉴는?</p>
+		
+		<!-- 하나 질문에 대한 답임으로 name 속성이 같아야 한다 -->
+		<input type="checkbox" name="foodCheck" value="2" id="label2">
+		<input type="checkbox" name="foodCheck" value="3">김치찌게
+		<input type="checkbox" name="foodCheck" value="4">달걀말이
+		<input type="checkbox" name="foodCheck" value="5">장조림
+		<br><br>
+		
+		<input type="checkbox" name="foodCheck" value="6">김
+		<input type="checkbox" name="foodCheck" value="7">멸치볶음
+		<input type="checkbox" name="foodCheck" value="8">불고기
+		<input type="checkbox" name="foodCheck" value="9" id="label9">
+		
+		<label>
+			<input type="checkbox" name="foodCheck" value="1"> 밥
+		</label>
+		<!-- 이렇게하면  체크박스만이 아니라 글자 눌러도 체크된다. -->
+		
+		<label for="label2">미역국</label>
+		<!-- 이렇게도 가능 -->
+		
+		<input type="text">
+		 
+		<br><br><br><br>
+		<label for="label9">김치</label>
+		<!-- 라벨에서는 이렇게 길게 해서도 선택 가능 -->
+		
+	</form>
+</div>
+
+</body>
+</html>

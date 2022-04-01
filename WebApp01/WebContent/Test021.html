@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test021.html</title>
+</head>
+<body>
+
+<div>
+	<!-- 중요!! -->
+	<h1>전송, 취소 버튼 만들기</h1>
+	<hr>
+</div>
+
+<div>
+	<!-- 데이터 전송 및 페이지 요청 -->
+	<!-- 폼으로 구성한 데이터의 내용들을 전달할테니...  요청한 페이지와 만날 수 있게 해달라~!!-->
+	<form action="http://localhost:8090/WebApp01/Test022.html">
+		*이름 <input type="text" name="name" size="15" maxlength="10">
+		<br>
+		*이메일 <input type="text" name="email" size="15" maxlength="20">
+		<br>
+		*하고 싶은 말<br>
+		<textarea rows="10" cols="50" name="field"></textarea>
+		<br><br>
+		
+		<input type="submit" value="전송하기" name="submitBtn">
+		<input type="button" value="전송하기">
+		<!-- 둘은 다르다 (submit의 경우 action 가능)-->
+		
+		<!-- button 태그는 27번과 동일하다 -->
+		<button type="button">전송하기</button>
+		
+		<!-- 단 버튼 태그는 태그 사이에 다른 태그 명시가능 -->
+		<button type="button">
+			<img alt="" src="images/btn_03.png">
+		</button>
+		
+		<!-- 만약 button 태그에서 타입 명시 안하면 submit이다 -->
+		<button>전송하기</button>
+		<button type="submit"></button>
+		<!-- 39번, 40번은 같다 -->
+		
+		<br><br>
+
+		
+		<input type="reset" value="취소하기" name="resetBtn">
+		<br><br>
+	</form>
+</div>
+
+</body>
+</html>

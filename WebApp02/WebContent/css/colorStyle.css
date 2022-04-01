@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+p {
+	color: lime;
+}
+
+h2 {
+	color: #800080;
+}
+
+span {
+	color: #f7f5bd;
+}
+/*이클립스에서 색에 마우스를 올리면 색 지정가능*/

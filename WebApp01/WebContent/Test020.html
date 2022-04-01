@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test020.html</title>
+</head>
+<body>
+
+<div>
+	<h1>라디오 버튼 만들기</h1>
+	<hr>
+</div>
+
+<div>
+	<form>
+		<p>1. 당신의 성별은?</p>
+		<input type="radio" name="gender"> 여자
+		<input type="radio" name="gender"> 남자
+		<!-- name 속성이 중요 같은 name 속성이어야만 둘 주에 하나만 선택 기능 -->
+		
+		<br><br>
+		<p>2. 당신이 좋아하는 과목은?</p>
+		<input type="radio"> 국어
+		<input type="radio"> 영어
+		<input type="radio"> 수학
+		<input type="radio"> 사회
+		<input type="radio"> 과학
+		<hr>
+		
+		<p>1. 당신의 성별은?</p>
+		<input type="radio" name="gender"> 여자
+		<input type="radio" name="gender"> 남자
+		
+		<br><br>
+		<p>2. 당신이 좋아하는 과목은?</p>
+		<input type="radio" name="subject"> 국어
+		<input type="radio" name="subject"> 영어
+		<input type="radio" name="subject"> 수학
+		<input type="radio" name="subject"> 사회
+		<input type="radio" name="subject"> 과학
+		<hr>
+		
+		<!-- value 속성이 있어야 서버와 정확하게 수신 가능 -->
+		<p>1. 당신의 성별은?</p>
+		<input type="radio" name="gender" value="female"> 여자
+		<input type="radio" name="gender" value="male"> 남자
+		
+		<br><br>
+		<p>2. 당신이 좋아하는 과목은?</p>
+		<input type="radio" name="subject"> 국어
+		<input type="radio" name="subject"> 영어
+		<input type="radio" name="subject"> 수학
+		<input type="radio" name="subject"> 사회
+		<input type="radio" name="subject"> 과학
+		<hr>
+		
+		<!-- 라벨 사용 가능 -->
+		<p>1. 당신의 성별은?</p>
+		<label>
+		<input type="radio" name="gender" value="female" checked="checked"> 여자
+		</label>
+		<!-- checked를 통해 시작할때 조여지게 할 수 있다. -->
+		
+		<input type="radio" name="gender" value="male" id="m">
+		<label for="m">남자</label> 
+		
+		<br><br>
+		<p>2. 당신이 좋아하는 과목은?</p>
+		<input type="radio" name="subject" value="kor"> 국어
+		<input type="radio" name="subject" value="eng"> 영어
+		<input type="radio" name="subject" value="mat" checked="checked"> 수학
+		<input type="radio" name="subject" value="soc"> 사회
+		<input type="radio" name="subject" value="sci"> 과학
+		<hr>
+	</form>
+</div>
+
+</body>
+</html>
