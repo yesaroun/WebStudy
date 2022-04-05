@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test018.html</title>
+<style type="text/css">
+	
+</style>
+<script type="text/javascript">
+	function calc()
+	{
+		var kor = parseInt(document.getElementById("kor").value);
+		var eng = parseInt(document.getElementById("eng").value);
+		var mat = parseInt(document.getElementById("mat").value);
+		
+		var avg = (kor+eng+mat) / 3;
+		
+		document.getElementById("avg").value = Math.round(avg);
+		
+		var result = "불합격";
+		
+		if(avg >= 60)
+		{
+			if(kor>=40 && eng>=40 && mat>=40)
+				result = "합격";
+			else
+				result = "과락";
+		}
+		document.getElementById("result").value = result;
+	}
+</script>
+</head>
+<body>
+
+<!-- 
+	사용자로부터 이름, 국어점수, 영어점수, 수학점수를 입력받아
+	평균점수와 판정결과를 출력하는 페이지를 구성한다.
+	판정결과는 함격, 과락, 불합격 중 하나로 처리한다.
+	
+	합격은 모든 과목 점수가 40점 이상이면서 평균 60점 이상인 경우
+	과락은 평균이 60점 이상이지만 한 과목이라도 과목 점수가 40점 미만의 과목이 존재하는 경우
+	불합격은 평균이 60점 미만인 경우로 처리한다.
+	
+	HTML, CSS, Javascript 활용
+	
+	페이지 레이아웃
+	----------------------------------------------------------------
+	이름		[		]
+	국어점수	[		]
+	영어점수	[		]
+	수학점수	[		]
+	
+	< 처리결과확인 >
+	
+	평균		판졍결과
+	[		]	[		]
+	----------------------------------------------------------------
+ -->
+ 
+<div>
+	<h1>자바스크립트 활용</h1>
+	<hr>
+</div>
+
+<div>
+	<div>
+		이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="text" class="txt" id="name">
+	</div>
+	<div>
+		국어점수&nbsp;
+		<input type="text" class="txt" id="kor">	
+	</div>
+	<div>
+		영어점수&nbsp;
+		<input type="text" class="txt" id="eng">
+	</div>
+	<div>
+		수학점수&nbsp;
+		<input type="text" class="txt" id="mat">
+	</div>
+	<div>
+		<input type="button" class="btn" value="< 처리결과확인 >" onclick="calc()">
+	</div>
+	
+	<div>
+		<p>평균	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 판정결과</p>
+		<input type="text" class="txtResult" id="avg" disabled="disabled">
+		<input type="text" class="txtResult" id="result" disabled="disabled">
+	</div>
+	<br>
+</div>
+
+</body>
+</html>

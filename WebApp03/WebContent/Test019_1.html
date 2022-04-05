@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test019.html</title>
+<style type="text/css">
+	* {color: #223322;}
+   input {font-family: 나눔고딕코딩; font-weight: bold;}
+   input:focus {background-color: #eeeeff;}
+   input.btn {width: 150px; font-weight: bold; font-family: 맑은 고딕;}
+   input.btn:hover {color: orange;} 
+   td {text-align: center;}
+   .txt {text-align: right;}
+   textarea {font-family: 나눔고딕코딩; font-weight: bold;}
+</style>
+<script type="text/javascript">
+
+	function mayCalculate()
+	{
+		//test
+		//alert("함수 호출 확인~!!");
+		
+		document.getElementById("result").value = "";
+		
+		var nNum = Number(document.getElementById("num").value);
+		var nSum = 0;
+		
+		if (nNum < 100)
+		{
+			alert("입력값은 100이상만 가능합니다~!!!");
+			return;											// check~!!(자바와 똑같음)
+		}
+		
+		for (var n=1; n <=nNum; n++)		//-- 1부터 사용자가 입력한 값(nNum)까지 1씩 증가하며 반복 수행
+		{
+			nSum += n;						//-- nSum 을 n만큼씩 증가
+			
+			if(n % 10 == 0)					//-- n이 10의 배수
+				document.getElementById("result").value += "1 ~ " + n + " : " + nSum + "\n"; 		//(값을 추가 시켜야함/ 계속 출력해야 하니까)
+		}
+		
+		document.getElementById("result").value += ">> 1 ~ " + nNum + " : " + nSum;
+	}
+
+</script>
+</head>
+<body>
+
+<!-- 
+	사용자로부터 임의의 정수 n을 입력받아
+	1부터 n까지의 합을 계산하되 n 은 100 이상만 서용하고
+	출력 시 10의 배수가 될 때 마다 중간 합을 출력할 수 있는 페이지를 구성한다.
+	반복문을 활용할 수 있도록 한다.
+	
+	HTML, CSS, Javascript 활용
+	
+	페이지 레이아웃						(입력값은 100이상만 가능~!!!)
+	--------------------------------------------------------------------------
+	정수 입력(100 이상) [		] → 조건 유효성 검사(100 이상 만족하는지만 확인 아닐 경우 경고창띄우기)
+	
+		< 결과 > < 취소 >
+	----------------------------- → textarea
+	1 ~ 10 : 55
+	1 ~ 20 : 210
+		:
+					
+	-----------------------------
+	
+	
+	--------------------------------------------------------------------------
+ -->
+
+<div>
+	<h1>자바스크립트 활용</h1>
+	<hr>
+</div>
+
+<div>
+	<form>
+		<div>
+			정수 입력(100 이상)
+			<input type="text" class="txt" id="num">	
+		</div>
+		<br>
+		
+		<div>
+			<input type="button" value="결과" class="btn" style="width: 150px" onclick="mayCalculate()">
+			<input type="reset" value="취소" class="btn" style="width: 150px">
+		</div>
+		<br>
+		<div>
+			<textarea rows="10" cols="40" id="result" readonly="readonly"></textarea>
+		</div>
+	</form>
+</div>
+
+</body>
+</html>

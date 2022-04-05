@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test021.html</title>
+<style type="text/css"></style>
+<script type="text/javascript">
+	var arrStr = "";
+	var arr = [];
+	var max = 0;
+	
+	function maxCalc()
+	{
+		//test
+		//alert("a");
+		
+		arrStr = document.getElementById("input").value;
+		
+		arr = arrStr.split(" ");
+		
+		//test
+		//alert(arr);
+		for (var i = 0; i < arr.length; i++)
+		{
+			document.getElementById("all").value += arr[i] + " ";
+			
+			if(arr[i] > max)
+				max = arr[i];
+			
+			document.getElementById("max").value = max;
+		}
+	}
+</script>
+</head>
+<body>
+
+<!-- 
+	사용자로부터 임의의 정수를 임의의 갯수만큼 입력받고,
+	그 내용으로 배열을 구성하여
+	구성한 정수들 중 갖아 큰 수를 출력해 줄 수 있는 페이지를 구현한다.
+	HTML, CSS, Javascript 활용
+	
+	페이지 레이아웃
+	-------------------------------------------------------------------
+	데이터 입력(공백 구분)	[ 21 86 285 43 7 ]		→ 배열 구성
+		
+			< 결과 확인>
+	- 전체 출력 [  21 86 285 43 7 ]					→ 배열 전체 출력
+	- 가장 큰 수 [ 285 ]
+	
+	-------------------------------------------------------------------
+ -->
+ 
+<div>
+	<h2>자바스크립트 활용</h2>
+	<hr>
+</div>
+
+<div>
+	<form>
+		데이터 입력(공백 구분)
+		<input type="text" class="txt" id="input">
+		<br><br>
+		
+		<input type="button" value="< 결과 확인 >" class="btn" id="resultBtn" style="width: 300px" onclick="maxCalc()">
+		<br><br>
+		
+		- 전체 출력&nbsp;
+		<input type="text" class="txt" id="all" disabled="disabled">
+		<br>
+		- 가장 큰 수 
+		<input type="text" class="txt" id="max" disabled="disabled">
+	</form>
+</div> 
+
+
+</body>
+</html>

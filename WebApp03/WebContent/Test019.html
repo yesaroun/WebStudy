@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test019.html</title>
+<style type="text/css"></style>
+<script type="text/javascript">
+	function calc()
+	{
+		// test
+		//alert("a");
+		
+		var num = parseInt(document.getElementById("score").value);
+		var tot = 0;
+		
+		if (num < 100)
+		{
+			alert("입력값은 100이상만 가능~!!!")			
+			return
+		}
+		for (var i = 1; i < num; i++)
+		{
+			tot += i;
+			
+			if (i%10 == 0)
+			{
+				document.getElementById("result").value += "1 ~ " + i + " : " + tot + "\n";
+			}
+		}
+		document.getElementById("result").value += "1 ~ " + num + " : " + tot;
+	}
+</script>
+</head>
+<body>
+
+<!-- 
+	사용자로부터 임의의 정수 n을 입력받아
+	1부터 n까지의 합을 계산하되 n 은 100 이상만 서용하고
+	출력 시 10의 배수가 될 때 마다 중간 합을 출력할 수 있는 페이지를 구성한다.
+	반복문을 활용할 수 있도록 한다.
+	
+	HTML, CSS, Javascript 활용
+	
+	페이지 레이아웃						(입력값은 100이상만 가능~!!!)
+	--------------------------------------------------------------------------
+	정수 입력(100 이상) [		] → 조건 유효성 검사(100 이상 만족하는지만 확인 아닐 경우 경고창띄우기)
+	
+		< 결과 > < 취소 >
+	----------------------------- → textarea
+	1 ~ 10 : 55
+	1 ~ 20 : 210
+		:
+					
+	-----------------------------
+	
+	
+	--------------------------------------------------------------------------
+ -->
+
+<div>
+	<h1>자바스크립트 활용</h1>
+	<hr>
+</div>
+
+<form>
+	<div>
+		정수 입력(100 이상)
+		<input type="text" class="txt" id="score">
+	</div>
+	<br>
+	<div>
+		<input type="button" class="btn" value="< 결과 >" id="resultBtn" onclick="calc()">
+		<input type="reset" class="btn" value="< 취소 >">
+	</div>
+	<div>
+		<textarea rows="10" cols="40" id="result" readonly="readonly"></textarea>
+	</div>
+</form>
+
+</body>
+</html>
