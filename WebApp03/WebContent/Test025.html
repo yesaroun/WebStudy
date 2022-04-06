@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test025.html</title>
+<style type="text/css">
+* {color: #223322;}
+   input {font-family: 나눔고딕코딩; font-weight: bold;}
+   input:focus {background-color: white;}
+   input.btn {width: 200px; font-weight: bold; font-family: 맑은 고딕;}
+   input.btn:hover {color: black;}   
+   .txt {text-align: right;}
+</style>
+<script type="text/javascript">
+
+	function makeCal()
+	{
+		//test
+		//alert("a");	
+	
+		var year = parseInt(document.getElementById("textYear").value);
+		var month = parseInt(document.getElementById("textMonth").value);
+	
+		var total = 0;
+		total = (year-1)*365 + parseInt((year-1)/4) - parseInt((year-1)/100) + parseInt((year-1)/400);
+	
+		//alert(total);
+	
+		var m = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+	
+		for (var i = 0; i < month-1; i++) 
+		{
+			total += m[i];
+		}
+		total++;
+	
+		if (month >= 3 && (year%4==0 && year%100!=0 && year%400==0)) 
+		{
+			total++;
+		}
+	
+	
+		var days = total % 7;
+	
+		var lastDay = m[month-1];
+		if (month==2 && (year%4==0 && year%100!=0 || year%400==0))
+			lastDay = 29;
+	
+		var tableNode = document.getElementById("calenderTbl");
+		var trNode = document.getElement("tr");
+	
+		for (var i = 0; i < days; i++) 
+		{
+			trNode.appendChild(createTdNode(""))	
+		}
+	
+	}
+	
+	function createTdNode(val)
+	{
+		var textNode = document.createTextNode(val);
+		var tdNode = document.createTextNode("td");
+		tdNode.appendChild(textNode);
+		return tdNode;
+	}
+
+</script>
+</head>
+<body>
+
+<div>
+	<h1>테이블 동적 생성으로 만년달력 그리기</h1>
+	<hr>
+</div>
+
+<div>
+	<form>
+		<input type="text" id="textYear" class="txt" style="width: 67px"> 년
+		<input type="text" id="textMonth" class="txt" style="width: 67px"> 월
+		<br><br>
+		
+		<button type="button" class="btn" style="width: 200px" onclick="makeCal()">만년달력 그리기</button>
+		<br><br>
+		
+		<table border="1" id="calenderTbl">
+			<tr>
+				<th>일</th>
+				<th>월</th>
+				<th>화</th>
+				<th>수</th>
+				<th>목</th>
+				<th>금</th>
+				<th>토</th>
+			</tr>
+		</table>
+	</form>
+</div>
+
+</body>
+</html>

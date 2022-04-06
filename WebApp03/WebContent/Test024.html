@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test024.html</title>
+<script type="text/javascript">
+
+	function addMember()
+	{
+		// 확인
+		//alert("함수 호출 확인~");
+		
+		var name = document.getElementById("txtName").value;			// "김00"
+		var tel = document.getElementById("txtTel").value;				// "010-5555-5555"
+		var addr = document.getElementById("txtAddr").value;			// "경기도 분당"
+		
+		// 테스트
+		//alert(name + " " + tel + " " + addr);
+		
+		// table 엘리먼트 접근
+		var tableNode = document.getElementById("memberTbl");
+		
+		// table tr td th
+		// table thead tbody tr td th
+		
+		// tbody 엘리먼트 접근 → 사용하지 않는 경우 생략
+		// ※ 주의. 브라우저에 따라 다른 결과
+		
+		/*
+		if(tableNode.childNodes[0].nodeType==1)
+		{
+			tbodyNode = tableNode.childNodes[0];	// IE 에서 는 이렇게 처리
+		}
+		else
+		{
+			tbodyNode = tableNode.childNodes[1];	// CR(크롬), FF(파이어 폭스) 에서는 이렇게 처리 그래서 우리는 3나옴
+		}
+		
+		//test
+		alert(tableNode.childNodes[0].nodeType)
+		//--==>> 3
+		*/
+		
+		// <tr></tr>엘리먼트 동적 생성
+		// <td></td>엘리먼트 동적 생성
+		
+		var trNode = document.createElement("tr");			// <tr></tr>
+		/*
+		var tdNode1 = document.createElement("td");			// <td></td>
+		var nameNode = document.createTextNode(name);		// <td> 노드에 추가할 "김00" 텍스트 노드 생성
+		
+		var tdNode2 = document.createElement("td");			//<td></td>
+		var telNode = document.createTextNode(tel);			// <td> 노드에 추가할 "010-5555-5555" 텍스트 노드 생성
+		
+		var tdNode3 = document.createElement("td");			//<td></td>
+		var addrNode = document.createTextNode(addr);		// <td> 노드에 추가할 "경기도 분당" 텍스트 노드 생성
+		
+		tdNode1.appendChild(nameNode);   					// <td>"김00"</td>
+	    tdNode2.appendChild(telNode);   					// <td>"010-1111-1111"</td>
+	    tdNode3.appendChild(addrNode);   					// <td>"제주 서귀포"</td>
+	      
+	    trNode.appendChild(tdNode1);   						// <tr><td>"김00"</td></tr>
+	    trNode.appendChild(tdNode2);   						// <tr><td>"010-1111-1111"</td></tr>
+	    trNode.appendChild(tdNode3);   						// <tr><td>"제주 서귀포"</td></tr> */
+		// 같은게 반복이니까 createTdNode함수 만듬
+		
+		trNode.appendChild(createTdNode(name));				// <td><td>"김00"</td></tr>
+		trNode.appendChild(createTdNode(tel));				// <td><td>"김00"</td><td>"010-1111-1111"</td></tr>
+		trNode.appendChild(createTdNode(addr));				// <td><td>"김00"</td><td>"010-1111-1111"</td><td>"제주 서귀포"</td></tr>
+		
+		tableNode.appendChild(trNode);
+	}
+	
+	function createTdNode(val)
+	{
+		var textNode = document.createTextNode(val);
+		var tdNode = document.createElement("td");
+		tdNode.appendChild(textNode);
+		return tdNode;
+	}
+	
+</script>
+</head>
+<body>
+
+<div>
+	<h1>자바스크립트를 활용한 테이블 동적 생성</h1>
+	<hr>
+</div>
+
+<div>
+	<form>
+		이름 <input type="text" id="txtName" class="txt"><br>
+      	전화번호 <input type="text" id="txtTel" class="txt"><br>
+      	주소 <input type="text" id="txtAddr" class="txt"><br><br>
+      
+      	<button type="button" onclick="addMember()">회원 정보 입력</button>
+      	<!-- <input type="button" value="회원 정보 입력"> 과 완전히 같음 
+		대신 button에서는 별도의 다른 태그를 넣는 것이 가능.. 이미지 등
+		type="button"이 없다면 그냥 submit.
+		<input type="submit>과 같은 게 된다.
+		button은 액션을 걸지 않는 이상 클릭했다고 무슨 일이 일어나지 않지만
+		submit은 클릭하면 form에 걸어놓은 주소로 데이터를 전송하고 페이지를 요청-->
+      	<br><br><br>
+      
+      	<table border="1" id="memberTbl">
+         	<tr>
+            	<td>이름</td><td>전화번호</td><td>주소</td>
+        	 </tr>
+         	<tr>
+            	<td>최선하</td><td>010-1111-1111</td><td>제주 서귀포</td>
+         	</tr>
+         	<tr>
+            	<td>서민지</td><td>010-2222-2222</td><td>서울 여수</td>
+         	</tr>
+         	<tr>
+            	<td>김민성</td><td>010-3333-3333</td><td>경남 산청</td>
+         	</tr>
+         	<tr>
+            	<td>오이삭</td><td>010-4444-4444</td><td>서울 마포구</td>
+         	</tr>
+      	</table>
+	</form>
+</div>
+
+</body>
+</html>
