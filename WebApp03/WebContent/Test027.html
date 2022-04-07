@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test027.html</title>
+<script type="text/javascript">
+	function oneGame()
+	{
+		var numArr = [0, 0, 0, 0, 0, 0];
+		var temp;
+		
+		// 랜덤 수 배열에 저장
+		for (var i = 0; i < numArr.length; i++)
+		{
+			var check = 0;
+			
+			while (true)
+			{
+				temp = parseInt(Math.random() * 45)+1;
+				for(var j=0; j<=i; j++)
+				{
+					if(temp == numArr[j])
+						check++;
+				}
+				if(check == 0)
+					break;
+			}
+			numArr[i] = temp;
+		}
+		
+		//test
+		//alert(numArr[5]);
+		
+		// 오람차순 정렬
+		numArr.sort();
+		
+		document.getElementById("txtResult").value = numArr;
+	}
+	
+	function game()
+	{
+		var count = document.getElementById("txtInput").value;
+		
+		for (var i = 0; i < count; i++)
+		{
+			oneGame()
+			
+			// 개행
+		}
+	}
+</script>
+</head>
+<body>
+
+<!-- 
+	로또 번호(1~45)를 중복되지 않은 정수 6개를 생성하여
+	출력해주는 페이지를 구현한다.
+	HTML, CSS, Javascript를 활용한다.
+	난수 발생 함수를 활용한다.
+	번호순으로 (오름차순) 정렬하여 출력할 수 있도록 한다.
+	주문한 장 수 만큼 출력할 수 있도록 한다.
+	
+	페이지 레이아웃
+	-------------------------------------------------------------
+	로또 [		] 장		<주문하기>
+			└text 				└button
+			
+	결과
+	----------------------------------	→ textarea
+	
+	----------------------------------
+	-------------------------------------------------------------
+-->
+
+<div>
+	<h1>자바스크립트 실습</h1>
+	<hr>
+</div>
+
+<div>
+	<form>
+		로또 <input type="text" class="txt" id="txtInput"> 장 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button type="button" class="btn" onclick="oneGame()">주문하기</button>
+		<br><br>
+		
+		결과 <br>
+		<textarea rows="5" cols="30" id="txtResult"></textarea>
+	</form>
+</div>
+
+</body>
+</html>

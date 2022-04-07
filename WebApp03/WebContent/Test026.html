@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test026.html</title>
+<style type="text/css"></style>
+<script type="text/javascript">
+
+	function play()
+	{
+		var strType = ["가위", "바위", "보"];
+		
+		var num = Number(document.getElementById("txtInput").value);
+		
+		const rand = Math.floor(Math.random()*(3-1+1))+1;
+		
+		var result = " → ";
+		if (rand == num)
+		{
+			result += "비겼습니다.";
+		}
+		else if (rand == 1)
+		{
+			if (num == 2)
+				result += "사용자가 이겼습니다.";
+		}
+		else if (rand == 2) 
+		{
+			if (num == 3)
+				result += "사용자가 이겼습니다.";
+		}
+		else if (rand == 3) 
+		{
+			if (num == 1)
+				result += "사용자가 이겼습니다.";	
+		}
+		else 
+		{
+			result += "컴퓨터가 이겼습니다.";	
+		}
+		
+		var finalResult = "사용자 : " + strType[num-1] + " 컴퓨터 : " + strType[rand-1];
+		finalResult += result;
+		
+		document.getElementById("txtResult").value = finalResult;	
+	}
+
+</script>
+</head>
+<body>
+<!-- w3schools.com -->
+<!-- http://koxo.com/lang/js/index.html -->
+참고하기
+
+<!-- 
+	가위 바위 보 게임을 구성한다.
+	HTML, CSS, Javascript를 활용한다.
+	자바스크립트 난수 발생 함수를 찾아 활용한다.
+	
+	페이지 레이아웃
+	------------------------------------------------------
+	입력(1.가위, 2.바위, 3.보)	[	2	]<게임 결과 확인>
+	
+	[사용자:바위 컴퓨터:보 → 컴퓨터가 이겼습니다. ]
+	
+	------------------------------------------------------
+-->
+ 
+<div>
+	<form>
+		입력(1.가위, 2.바위, 3.보) <input type="text" class="txt" id="txtInput">
+		<input type="button" class="btn" value="<게임 결과 확인>" onclick="play()">
+		<br><br>
+		
+		<input type="text" class="txt" id="txtResult" readonly="readonly" style="width: 400px">
+	</form>
+</div>
+
+</body>
+</html>

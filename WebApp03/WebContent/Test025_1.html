@@ -4,12 +4,13 @@
 <meta charset="UTF-8">
 <title>Test025.html</title>
 <style type="text/css">
-* {color: #223322;}
    input {font-family: 나눔고딕코딩; font-weight: bold;}
-   input:focus {background-color: white;}
-   input.btn {width: 200px; font-weight: bold; font-family: 맑은 고딕;}
-   input.btn:hover {color: black;}   
-   .txt {text-align: right;}
+   input:focus {background-color: #eeeedd;}
+   .btn {width: 90px; font-weight: bold; font-family: 맑은 고딕;}
+   .btn:hover   {color: orange;}
+   td {text-align: right;}
+   .txt {text-align: center;}
+   table { width: 400px; background-color: #FFD700;}
 </style>
 <script type="text/javascript">
 
@@ -159,7 +160,164 @@
 		*/
 		//-------------------------------------------------------------------------------------------------
 		
-		// 5-1 새로운 달력 그리기--------------------------------------------------------------------------
+		/*
+		// 5-2 tbody 활용하기------------------------------------------------------------------------------
+		
+		var tableNode = document.getElementById("calendarTbl");
+		var tbodyNode = null;
+		
+		// 확인
+		//alert(tableNode);							//--==>>[object HTMLTableElement]
+		//alert(tableNode.childNodes[0]);			//--==>> [object Text] (테이블 섹션 element에 대한 object이다/ 노드는 계층 구조인데 테이블 노드를 만들면 그 안에 자식 노드들이 일반 엘리먼트가 아니라 노드를 구성하는 배열이 만들어지는데 이 배열의 0번째꺼는 text object이더라)
+		//alert(tableNode.childNodes[0].nodeType);	//--==>> 3 (인터넷 익스플로러인지 크롬인지 파이어폭스인지 확인하는거/ 그 배열의 노드 타입은 3이더라)
+		//alert(tableNode.childNodes[1]);			//--==>> [object HTMLTableSectionElement] (그 배열의 1번째는 이거 이더라.)
+		
+		if (tableNode.childNodes[0].nodeType==1)
+			tbodyNode  = tableNode.childNodes[0];
+		else
+			tbodyNode = tableNode.childNodes[1];	// (tbody 노드는 htmltableSectionElement를 tbody 노드로 잡겠다고 구성한 내용)
+			
+		// 확인
+		//alert(tbodyNode.childNodes.length);		//--==>> 2 (childNodes의 배열은 노드 구성이 어떻게 되어있느냐에 따른 length이다./ 2나오는데 childNode의 0번재는 htmltabe row element가 되고 1번째는 [object Text]이다)
+		//alert(tbodyNode.childNodes[0]);			//--==>>[object HTMLTableRowElement]
+		//alert(tbodyNode.childNodes[1]);			//--==>> [object Text]
+		
+		
+		// tbodyNode의 기존 자식 노드 삭제 과정
+		for (var n=tbodyNode.childNodes.length-1; n>=0; n--)
+		{
+			tbodyNode.removeChild(tbodyNode.childNodes[n]); 	// (removeChild : 이 함수는 안에 있는 어떤(괄호 안에 있는 조건에 맞는) 자식을 지우는 함수임)/ (테이블 남은 상태에서 여기서는 모든 자식다 지움)
+		}
+		
+		//<table></tabe>		(이것만 남은 상황)
+		
+		
+		var trNode = document.createElement("tr");
+		
+		// 요일 이름 다시 출력하기
+		var dayName = ["일", "월", "화", "수", "목", "금", "토"];
+		for (var i=0; i<dayName.length; i++)
+		{
+			trNode.appendChild(createTdNode(dayName[i]));
+		}
+		tbodyNode.appendChild(trNode);
+		
+		var trNode = document.createElement("tr");						//<tr></tr>
+		 
+		// 해당 월의 1일이 시작되기 전에 빈 칸 td 채우기
+		for(var i=0; i<days ; i++)
+			 trNode.appendChild(createTdNode(""));
+		 
+		 // 1일 부터... 해당 월의 마지막 날짜까지 td 채우기
+		 
+		var d=1;
+		for(d=1; d<=lastDay; d++)
+		{
+			trNode.appendChild(createTdNode(d));			// 어떤 형태로 그려지는지 check~!!!
+			
+			// 일요일을 그리기 시작할 때...
+			// 기존 tr 구성을 마무리하고
+			// 다시 새로운 tr을 구성
+			
+			// check~!!! -------------------------------------------------------
+			
+			if((d+days)%7==0)							// 일요일을 그리기 전에...
+			{
+				tableNode.appendChild(trNode);			// trNode 를 tableNode에 추가
+				trNode = document.createElement("tr");	// 새로운 trNode 구성
+			}
+			//------------------------------------------------------------------
+		}
+		
+		//alert(d);
+		//-- 30일 까지 출력한 날짜에서 확인 결과 → 31
+
+		// 날짜 구성 이후 마지막 빈칸 td 채우기
+		// 최종적으로 처리된 날짜가 일요일 개행이 적용되지 않은 경우에만...
+		if ( ((d-1)+days)%7!=0)
+		{
+			for (var i=0; i<7; i++, d++)									//check~!!! 『d++』
+			{
+				trNode.appendChild(createTdNode(""));
+				
+				if( (d+days)%7==0 )
+				{
+					tableNode.appendChild(trNode);
+					break;					
+				}
+			}
+		}
+		 
+		tableNode.appendChild(trNode); 
+		
+		//-------------------------------------------------------------------------------------------------
+		*/
+		
+		
+		// 5-3 새로운 달력 그리기--------------------------------------------------------------------------
+		
+		var calendarBox = document.getElementById("newCalendarBox");
+		
+		var tableNode = document.createElement("table");				// <table></table>
+		
+		var trNode = document.createElement("tr");						// <tr></tr>
+		var dayName = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+		for(var i=0; i<dayName.length; i++)
+			trNode.appendChild(createTdNode(dayName[i]));
+		tableNode.appendChild(trNode);
+		
+		
+		// check~!!!
+		calendarBox.appendChild(tableNode);
+		
+		var trNode = document.createElement("tr");						//<tr></tr>
+		 
+		// 해당 월의 1일이 시작되기 전에 빈 칸 td 채우기
+		for(var i=0; i<days ; i++)
+			 trNode.appendChild(createTdNode(""));
+		 
+		 // 1일 부터... 해당 월의 마지막 날짜까지 td 채우기
+		 
+		var d=1;
+		for(d=1; d<=lastDay; d++)
+		{
+			trNode.appendChild(createTdNode(d));			// 어떤 형태로 그려지는지 check~!!!
+			
+			// 일요일을 그리기 시작할 때...
+			// 기존 tr 구성을 마무리하고
+			// 다시 새로운 tr을 구성
+			
+			// check~!!! -------------------------------------------------------
+			
+			if((d+days)%7==0)							// 일요일을 그리기 전에...
+			{
+				tableNode.appendChild(trNode);			// trNode 를 tableNode에 추가
+				trNode = document.createElement("tr");	// 새로운 trNode 구성
+			}
+			//------------------------------------------------------------------
+		}
+		
+		//alert(d);
+		//-- 30일 까지 출력한 날짜에서 확인 결과 → 31
+
+		// 날짜 구성 이후 마지막 빈칸 td 채우기
+		// 최종적으로 처리된 날짜가 일요일 개행이 적용되지 않은 경우에만...
+		if ( ((d-1)+days)%7!=0)
+		{
+			for (var i=0; i<7; i++, d++)									//check~!!! 『d++』
+			{
+				trNode.appendChild(createTdNode(""));
+				
+				if( (d+days)%7==0 )
+				{
+					tableNode.appendChild(trNode);
+					break;					
+				}
+			}
+		}
+		 
+		tableNode.appendChild(trNode); 
+		
 		
 		//-------------------------------------------------------------------------------------------------
 	}
@@ -194,6 +352,8 @@
 		<button type="button" class="btn" style="width: 200px" onclick="actionCalendar()">만년달력 그리기</button>
 		<br><br>
 		
+		<!-- 5-3에서 주석처리하고 <br><br>밑에 새로 생성함 -->
+		<!-- 
 		<table border="1" id="calendarTbl">
 			<tr>
 				<th>일</th>
@@ -205,6 +365,10 @@
 				<th>토</th>
 			</tr>
 		</table>
+		-->
+		
+		<br><br>
+		<div id="newCalendarBox"></div>
 	</form>
 </div>
 
