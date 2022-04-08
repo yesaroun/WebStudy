@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test033.html</title>
+
+<style type="text/css">
+	a {font-size: small;}
+</style>
+
+<script type="text/javascript">
+
+	function myAddr(addr)
+	{
+		// 확인
+		//alert("함수 호출 확인~!!!");
+		
+		// 확인
+		//alert(addr);
+		
+		//document.getElementById("addr1").value = "1234"; (이건 안됨 없으니까)
+		//window.opener (이건 test033.html을 오픈한 문서(test032.html))
+		//window.opener.document.getElementById("addr1").value = "1234";
+		window.opener.document.getElementById("addr1").value = addr;
+		
+		// CR, FF용
+		window.opener.document.getElementById("txt1").innerHTML = addr;  //(이건 span이여서(그냥 document안에 넣으면 innerHTML로 해야함(찾아보기)))
+		
+		// IE 용
+		//window.opener.document.getElementById("txt1").innerText = addr;
+		
+		//window (이건 이 페이지인 033임)
+		window.close();
+	}
+
+</script>
+
+</head>
+<body>
+
+<div>
+	<form>
+		주소 검색
+		<input>
+		<input type="button" value="검색"><br><br>
+		
+		<!-- (a 태그에 onclick이벤트를 넣지 않는다.) -->
+		<!-- <a href="Test032.html">서울 마포구 서교로 1가 (1~110번지)</a><br> -->
+		<!-- <a href="myAddr()">서울 마포구 서교로 1가 (1~110번지)</a><br>-->	<!-- (페이지를 찾는거이기에 404 에러난다.) -->
+		
+		<!-- (javascript: 이렇게하면 자바스크립트 함수 호출 가능) -->
+		<a href="javascript:myAddr('04044 서울 마포구 서교로 1가')">서울 마포구 서교로 1가 (1~110번지)</a><br>
+		<a href="javascript:myAddr('04044 서울 마포구 서교로 2가')">서울 마포구 서교로 2가 (111~123번지)</a><br>
+		<a href="javascript:myAddr('04044 서울 마포구 서교로 3가')">서울 마포구 서교로 3가 (124~131번지)</a><br>
+		<a href="javascript:myAddr('04044 서울 마포구 서교로 4가')">서울 마포구 서교로 4가 (132~184번지)</a><br>
+		<a href="javascript:myAddr('04044 서울 마포구 서교로 5가')">서울 마포구 서교로 5가 (185~192번지)</a><br>
+		<a href="javascript:myAddr('04044 서울 마포구 서교로 6가')">서울 마포구 서교로 6가 (193~215번지)</a><br>
+	</form>
+</div>
+
+</body>
+</html>
