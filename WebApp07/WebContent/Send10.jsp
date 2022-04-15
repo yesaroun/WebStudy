@@ -16,7 +16,7 @@
 <!-- Send10.jsp → Send10_re.jsp	→ Receive10.jsp  -->
 <!-- Send10.jsp → Send10_for.jsp	→ Receive10.jsp  -->
 
-<!-- 사용자 최초 요처어 페이지 -->
+<!-- 사용자 최초 요청 페이지 -->
 <!-- http://localhost:8090/WebApp07/Send10.jsp -->
 
 <div>
