@@ -58,6 +58,29 @@
 	#telTitle {width: 160px}
 	.list {text-align: center;}
 </style>
+<script type="text/javascript">
+
+	// 필수 입력 항목에 대한 기본적인 확인
+	function formCheck()
+	{
+		// 확인
+		//alert("함수 호출 확인~!!!");
+		
+		var uName = document.getElementById("userName");
+		var nErr = document.getElementById("nameErr");
+		
+		nErr.style.display = "none";
+		
+		if(uName.value == "")
+		{
+			nErr.style.display = "inline";
+			return false;
+		}
+		
+		return true;		// (false는 페이지 안넘어가고 true면 페이지 요청함)
+	}
+	
+</script>
 </head>
 <body>
 
@@ -68,7 +91,7 @@
 
 <div>
 	<!-- 데이터 입력 -->
-	<form action="">
+	<form action="MemberInsert.jsp" method="post" onsubmit="return formCheck()">
 		<table>
 			<tr>
 				<th>이름(*)</th>

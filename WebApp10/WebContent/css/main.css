@@ -17,14 +17,13 @@ body, p, div, span, input, table, th, td, select
 	border-radius: 3px;
 }
 
-table
+.table
 {
 	border-collapse: collapse;
 	width: 100%
-	border: 2px;
 }
 
-table th, table td
+.table th, .table td
 {
 	border: 1px solid gray;
 	border-left: 0px;
@@ -33,7 +32,7 @@ table th, table td
 	line-height: 150%;
 }
 
-table th
+.table th
 {
 	font-weight: bold;
 	background-color: #EEE;
