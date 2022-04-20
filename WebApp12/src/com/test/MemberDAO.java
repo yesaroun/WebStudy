@@ -162,8 +162,7 @@ public class MemberDAO
 		int result = 0;
 		
 		String sql = "SELECT COUNT(*) AS COUNT"
-				+ " FROM TBL_MEMBERSCORE"
-				+ " WHERE SID=1";
+				+ " FROM TBL_MEMBERSCORE WHERE SID=?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, sid);
 		
