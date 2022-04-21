@@ -1,0 +1,17 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%
+	// TestSession01_1.jsp
+	request.setCharacterEncoding("UTF-8");
+	// 넘어온 데이터 받기
+	String UserName = request.getParameter("inputName");
+	String UserTel = request.getParameter("inputTel");
+	String UserId = request.getParameter("inputId");
+	String UserPwd = request.getParameter("inputPwd");
+	
+	session.setAttribute("UserName", UserName);
+	session.setAttribute("UserTel", UserTel);
+	session.setAttribute("UserId", UserId);
+	session.setAttribute("UserPwd", UserPwd);
+	
+	response.sendRedirect("TestSession03.jsp");
+%>
