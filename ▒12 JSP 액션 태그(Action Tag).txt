@@ -69,9 +69,9 @@
      이 때, value 속성값을 표현식으로 사용하는 것도 가능하다.
 
 
-○ <jspLforward>j
+○ <jsp:forward>
   
-   <jspLforward> 태그는 현재 머물고 있는 JSP 페이지에서
+   <jsp:forward> 태그는 현재 머물고 있는 JSP 페이지에서
    URL로 지정한 특정 페이지로 넘어갈 때 사용하는 태그로
    현재 페이지에서 조건에 따라 서로 다른 페이지를 호출할 경우 사용된다.
    이 태그의 특이한 점은 현재 페이지에 대한 URL만 나타날 뿐
@@ -124,7 +124,7 @@
    즉, 템플릿 페이지를 작성할 때 주로 사용된다는 것이다.
    또한, <jsp:include> 액션 태그는 같은 request 기본 객체를 공유한다.
 
-   <jsp:include page="uri" flush="false" />
+   <jsp:include page="url" flush="false" />
 
    - page  속성
      현재 페이지에 결과가 포함될 대상 페이지의 이름
@@ -164,7 +164,8 @@
    빈은 이와 같은 효율적인 코딩 작업을 가능하게 한다.
 
    현재 개발되었거나 작업중인 프로그램들은 모두
-   MVC 기법에 의해 개발되고 있다.
+   MVC 기법(중요, 모델2라고 하기도함)(Model2 : 설계 기법(방식), MVC : 디자인 패턴)
+   에 의해 개발되고 있다. 
    MVC 기법은 프로그램을 모델(Model), 뷰(View), 컨트롤러(Controller)로
    나누어 개발을 하는데...
    Model 은 로직을 가지고 있는 부분으로 DB와 연동하는 부분이고
@@ -256,4 +257,28 @@
      property="property_name" param="parameter_name" |
      property="property_name" value="parameter_value"
 
+     ·property
+       값을 설정하고자 하는 bean 속성의 이름으로
+       『"*"』으로 설정하면 ServletRequest 안의 모든 인자들 중
+       bean 속성과 데이터타입이 일치하는 것을 찾아서
+       각각의 속성들을 각각의 인자들의 값으로 설정한다.
+       값이 『""』인 경우 속성은 변하지 않는
+     ·param
+       bean 속성에 설정하고자 하는 경우
+       파라미터에서 지정하고자 할 경우 사용한다.
+     ·value
+       bean 속성에 설정할 값을 지정하며
+       하나의 <jsp:setProperty> 액션 태그가 param 과 value를 동시에 가질 수 없다.
 
+○ <jsp:getProperty>
+
+   <jsp:getProperty> 액션 태그는 bean 의 속성 값을 얻는데 사용한다.
+   bean의 속성값을 얻어 String 으로 변환한 다음 출력 스트림으로 보낸다.
+
+   <jsp:getProperty name="name"  property="property_name">
+
+   - name 속성
+     속성을 얻고자하는 bean의 인스턴스 이름
+
+   - property 속성
+     얻고자 하는 속성의 이름
