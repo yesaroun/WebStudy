@@ -124,8 +124,25 @@ FROM
 );
 -- 이런 방식으로 하는거고 NVL 추가하고 서브쿼리 쓸 필요가 없다
 
-
+SELECT NVL(MIN(NUM), -1) NEXTNUM
+  FROM TBL_BOARD
+ WHERE NUM>50;
+--> 한 줄 구성
+SELECT NVL(MIN(NUM), -1) NEXTNUM FROM TBL_BOARD WHERE NUM>50
+;
 
 --○ 특정 게시물(50)의 이전 번호 읽어오는 쿼리문 구성
+SELECT NVL(MAX(NUM), -1) BEFORENUM
+  FROM TBL_BOARD
+ WHERE NUM<50;
+--> 한 줄 구성
+SELECT NVL(MAX(NUM), -1) BEFORENUM FROM TBL_BOARD WHERE NUM<50
+;
+
+
+
+
+
+
 
 

@@ -6,7 +6,6 @@
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="java.net.ConnectException"/>
 <fullyQualifiedTypeName name="com.sun.corba.se.pept.transport.Connection"/>
-<fullyQualifiedTypeName name="java.lang.Class"/>
 <fullyQualifiedTypeName name="java.sql.DriverManager"/>
 <fullyQualifiedTypeName name="com.test.MemberDAO"/>
 <fullyQualifiedTypeName name="java.beans.Statement"/>
@@ -14,13 +13,24 @@
 <fullyQualifiedTypeName name="sec01_packageimport.common.A"/>
 <fullyQualifiedTypeName name="com.sun.org.apache.xerces.internal.impl.xpath.regex.REUtil"/>
 <fullyQualifiedTypeName name="com.test.ScoreDTO"/>
-<fullyQualifiedTypeName name="java.sql.Statement"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="com.util.DBConn"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="sec02_externalclass.EX02_ExternalClass_2.pack1.A"/>
 <fullyQualifiedTypeName name="com.test.MemberDTO"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
-<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="com.test.MemberScoreDTO"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="java.lang.Class"/>
+<fullyQualifiedTypeName name="sec03_methodoverriding.EX02_MethodOverriding_2.Bird"/>
+<fullyQualifiedTypeName name="sec03_methodoverriding.EX02_MethodOverriding_2.Cat"/>
+<fullyQualifiedTypeName name="sec03_methodoverriding.EX02_MethodOverriding_2.Dog"/>
+<fullyQualifiedTypeName name="sec03_methodoverriding.EX02_MethodOverriding_2.Animal"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.Statement"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.sun.org.apache.bcel.internal.generic.NEWARRAY"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.test.BoardDTO"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="java.lang.StringBuffer"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
 </qualifiedTypeNameHistroy>
