@@ -61,7 +61,7 @@
 		<div id="lists">
 			<dl>
 				<dd class="num">1</dd>
-				<dd class="subject">안녕하세요</dd>
+				<dd class="subject">안녕하세요!</dd>
 				<dd class="name">김정용</dd>
 				<dd class="created">2022-04-25</dd>
 				<dd class="hitCount">0</dd>
