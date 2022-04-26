@@ -7,7 +7,7 @@ package com.test;
 
 public class BoardDTO
 {
-	// TBL_BOARD 테이브르이 레코드 구조와 동일한 속성 구성
+	// TBL_BOARD 테이블의 레코드 구조와 동일한 속성 구성
 	private int num;
 	private String name, pwd, email, subject, content, ipAddr, created;
 	private int hitCount;

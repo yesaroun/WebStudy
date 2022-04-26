@@ -8,16 +8,24 @@ public class DBConn
 {
 	private static Connection dbConn;
 	
-	public static Connection getConnection() throws ClassNotFoundException, SQLException 
+	public static Connection getConnection() 
 	{
 		if (dbConn == null)
 		{
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String url = "jdbc:oracle:thin:@211.238.142.166:1521:xe";
 			String user = "scott";
 			String pwd = "tiger";
 			
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			dbConn = DriverManager.getConnection(url, user, pwd);
+			try
+			{
+				Class.forName("oracle.jdbc.driver.OracleDriver");
+				dbConn = DriverManager.getConnection(url, user, pwd);
+				
+			} catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+			
 		}
 		
 		return dbConn;

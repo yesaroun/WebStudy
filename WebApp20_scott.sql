@@ -3,50 +3,50 @@ SELECT USER
 --==>> SCOTT
 
 
---¡Û ±âÁ¸ Å×ÀÌºí Á¦°Å
+--â—‹ ê¸°ì¡´ í…Œì´ë¸” ì œê±°
 DROP TABLE TBL_BOARD PURGE;
---==>> Table TBL_BOARDÀÌ(°¡) »èÁ¦µÇ¾ú½À´Ï´Ù.
+--==>> Table TBL_BOARDì´(ê°€) ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.
 
 
 
---¡Û TBL_BOARD Å×ÀÌºí »ý¼º(°Ô½ÃÆÇ Àü¿ë Å×ÀÌºí »ý¼º)
+--â—‹ TBL_BOARD í…Œì´ë¸” ìƒì„±(ê²Œì‹œíŒ ì „ìš© í…Œì´ë¸” ìƒì„±)
 CREATE TABLE TBL_BOARD
-( NUM           NUMBER(9)                       NOT NULL        -- °Ô½Ã¹° ¹øÈ£
-, NAME          VARCHAR2(30)                    NOT NULL        -- °Ô½Ã¹° ÀÛ¼ºÀÚ
-, PWD           VARCHAR2(20)                    NOT NULL        -- °Ô½Ã¹° ¾ÏÈ£
-, EMAIL         VARCHAR2(50)                                    -- ÀÛ¼ºÀÚ ÀÌ¸ÞÀÏ
-, SUBJECT       VARCHAR2(100)                   NOT NULL        -- °Ô½Ã¹° Á¦¸ñ
-, CONTENT       VARCHAR2(4000)                  NOT NULL        -- °Ô½Ã¹° ³»¿ë
-, IPADDR        VARCHAR2(20)                                    -- Á¢¼ÓÇÑ Å¬¶óÀÌ¾ðÆ®
-, HITCOUNT      NUMBER          DEFAULT 0       NOT NULL        -- °Ô½Ã¹° Á¶È¸¼ö
-, CREATED       DATE            DEFAULT SYSDATE NOT NULL        -- °Ô½Ã¹° ÀÛ¼ºÀÏ
-, CONSTRAINT BOARD_NUM_PK PRIMARY KEY(NUM)                      -- °Ô½Ã¹° ¹øÈ£¿¡ PK Á¦¾à Á¶°Ç ¼³Á¤
+( NUM           NUMBER(9)                       NOT NULL        -- ê²Œì‹œë¬¼ ë²ˆí˜¸
+, NAME          VARCHAR2(30)                    NOT NULL        -- ê²Œì‹œë¬¼ ìž‘ì„±ìž
+, PWD           VARCHAR2(20)                    NOT NULL        -- ê²Œì‹œë¬¼ ì•”í˜¸
+, EMAIL         VARCHAR2(50)                                    -- ìž‘ì„±ìž ì´ë©”ì¼
+, SUBJECT       VARCHAR2(100)                   NOT NULL        -- ê²Œì‹œë¬¼ ì œëª©
+, CONTENT       VARCHAR2(4000)                  NOT NULL        -- ê²Œì‹œë¬¼ ë‚´ìš©
+, IPADDR        VARCHAR2(20)                                    -- ì ‘ì†í•œ í´ë¼ì´ì–¸íŠ¸
+, HITCOUNT      NUMBER          DEFAULT 0       NOT NULL        -- ê²Œì‹œë¬¼ ì¡°íšŒìˆ˜
+, CREATED       DATE            DEFAULT SYSDATE NOT NULL        -- ê²Œì‹œë¬¼ ìž‘ì„±ì¼
+, CONSTRAINT BOARD_NUM_PK PRIMARY KEY(NUM)                      -- ê²Œì‹œë¬¼ ë²ˆí˜¸ì— PK ì œì•½ ì¡°ê±´ ì„¤ì •
 );
---==>> Table TBL_BOARDÀÌ(°¡) »ý¼ºµÇ¾ú½À´Ï´Ù.
+--==>> Table TBL_BOARDì´(ê°€) ìƒì„±ë˜ì—ˆìŠµë‹ˆë‹¤.
 
 
---¡Û °Ô½Ã¹° ¹øÈ£ÀÇ ÃÖ´ë°ªÀ» ¾ò¾î³»´Â Äõ¸®¹® ±¸¼º
+--â—‹ ê²Œì‹œë¬¼ ë²ˆí˜¸ì˜ ìµœëŒ€ê°’ì„ ì–»ì–´ë‚´ëŠ” ì¿¼ë¦¬ë¬¸ êµ¬ì„±
 SELECT NVL(MAX(NUM), 0) AS MAXNUM
 FROM TBL_BOARD;
 --==>> 
 SELECT NVL(MAX(NUM), 0) AS MAXNUM FROM TBL_BOARD
 ;
 
---¡Û °Ô½Ã¹° ÀÛ¼º Äõ¸®¹® ±¸¼º
+--â—‹ ê²Œì‹œë¬¼ ìž‘ì„± ì¿¼ë¦¬ë¬¸ êµ¬ì„±
 INSERT INTO TBL_BOARD(NUM, NAME, PWD, EMAIL, SUBJECT, CONTENT, IPADDR, HITCOUNT, CREATED)
-VALUES(1, 'ÀÌÁö¿¬', '1234', 'ljy@test.com', 'ÀÛ¼ºÅ×½ºÆ®', '°Ô½Ã¹°³»¿ëÀÛ¼º', '211.238.142.160', 0, SYSDATE);
+VALUES(1, 'ì´ì§€ì—°', '1234', 'ljy@test.com', 'ìž‘ì„±í…ŒìŠ¤íŠ¸', 'ê²Œì‹œë¬¼ë‚´ìš©ìž‘ì„±', '211.238.142.160', 0, SYSDATE);
 -->>
-INSERT INTO TBL_BOARD(NUM, NAME, PWD, EMAIL, SUBJECT, CONTENT, IPADDR, HITCOUNT, CREATED) VALUES(1, 'ÀÌÁö¿¬', '1234', 'ljy@test.com', 'ÀÛ¼ºÅ×½ºÆ®', '°Ô½Ã¹°³»¿ëÀÛ¼º', '211.238.142.160', 0, SYSDATE)
+INSERT INTO TBL_BOARD(NUM, NAME, PWD, EMAIL, SUBJECT, CONTENT, IPADDR, HITCOUNT, CREATED) VALUES(1, 'ì´ì§€ì—°', '1234', 'ljy@test.com', 'ìž‘ì„±í…ŒìŠ¤íŠ¸', 'ê²Œì‹œë¬¼ë‚´ìš©ìž‘ì„±', '211.238.142.160', 0, SYSDATE)
 ;
---==>> 1 Çà ÀÌ(°¡) »ðÀÔµÇ¾ú½À´Ï´Ù.
+--==>> 1 í–‰ ì´(ê°€) ì‚½ìž…ë˜ì—ˆìŠµë‹ˆë‹¤.
 
 
---¡Û ·Ñ¹é
+--â—‹ ë¡¤ë°±
 ROLLBACK;
---==>> ·Ñ¹é ¿Ï·á.
+--==>> ë¡¤ë°± ì™„ë£Œ.
 
 
---¡Û DB ·¹ÄÚµåÀÇ °¹¼ö¸¦ °¡Á®¿À´Â Äõ¸®¹® ±¸¼º
+--â—‹ DB ë ˆì½”ë“œì˜ ê°¯ìˆ˜ë¥¼ ê°€ì ¸ì˜¤ëŠ” ì¿¼ë¦¬ë¬¸ êµ¬ì„±
 SELECT COUNT(*) AS COUNT
 FROM TBL_BOARD;
 -->
@@ -55,8 +55,8 @@ SELECT COUNT(*) AS COUNT FROM TBL_BOARD
 --==>> 0
 
 --                  1       10
---¡Û Æ¯Á¤ ¿µ¿ªÀÇ(½ÃÀÛ¹øÈ£-³¡¹øÈ£) °Ô½Ã¹° ¸ñ·ÏÀ» ÀÐ¾î¿À´Â Äõ¸®¹® ±¸¼º
---   ¹øÈ£, ÀÛ¼ºÀÚ, Á¦¸ñ, Á¶È¸¼ö, ÀÛ¼ºÀÏ
+--â—‹ íŠ¹ì • ì˜ì—­ì˜(ì‹œìž‘ë²ˆí˜¸-ëë²ˆí˜¸) ê²Œì‹œë¬¼ ëª©ë¡ì„ ì½ì–´ì˜¤ëŠ” ì¿¼ë¦¬ë¬¸ êµ¬ì„±
+--   ë²ˆí˜¸, ìž‘ì„±ìž, ì œëª©, ì¡°íšŒìˆ˜, ìž‘ì„±ì¼
 
 SELECT *
   FROM
@@ -70,51 +70,51 @@ SELECT *
     ) DATA
 )
 WHERE RNUM>=1 AND RNUM<=10;
---> ÇÑ ÁÙ ±¸¼º
+--> í•œ ì¤„ êµ¬ì„±
 SELECT * FROM ( SELECT ROWNUM RNUM, DATA.* FROM ( SELECT NUM, NAME, SUBJECT, HITCOUNT, TO_CHAR(CREATED, 'YYYY-MM-DD') AS CREATED FROM TBL_BOARD ORDER BY NUM DESC ) DATA ) WHERE RNUM>=1 AND RNUM<=10
 ;
 
---¡Û Æ¯Á¤ °Ô½Ã¹° Á¶È¸¿¡ µû¸¥ Á¶È¸ È½¼ö Áõ°¡ Äõ¸®¹® ±¸¼º
+--â—‹ íŠ¹ì • ê²Œì‹œë¬¼ ì¡°íšŒì— ë”°ë¥¸ ì¡°íšŒ íšŸìˆ˜ ì¦ê°€ ì¿¼ë¦¬ë¬¸ êµ¬ì„±
 UPDATE TBL_BOARD
 SET HITCOUNT = HITCOUNT + 1     -- HITCOUNT += 1 -- HITCOUNT++
 WHERE NUM=1;
 -->
 UPDATE TBL_BOARD SET HITCOUNT = HITCOUNT + 1 WHERE NUM=1
 ;
--- (°ú°Å¿¡´Â À§¿¡ ¹æ½ÄÀÎµ¥ F5¸¸ÇØµµ Á¶È¸¼ö°¡ ¿Ã¶ó°¡¼­ ¿äÁòÀº) ·Î±×È­~!!!(·Î±× ±â·ÏÀ¸·Î ³²±â´Â ¹æ½Ä)
+-- (ê³¼ê±°ì—ëŠ” ìœ„ì— ë°©ì‹ì¸ë° F5ë§Œí•´ë„ ì¡°íšŒìˆ˜ê°€ ì˜¬ë¼ê°€ì„œ ìš”ì¦˜ì€) ë¡œê·¸í™”~!!!(ë¡œê·¸ ê¸°ë¡ìœ¼ë¡œ ë‚¨ê¸°ëŠ” ë°©ì‹)
 
 
---¡Û Æ¯Á¤ °Ô½Ã¹°ÀÇ ³»¿ëÀ» ÀÐ¾î¿À´Â Äõ¸®¹® ±¸¼º
+--â—‹ íŠ¹ì • ê²Œì‹œë¬¼ì˜ ë‚´ìš©ì„ ì½ì–´ì˜¤ëŠ” ì¿¼ë¦¬ë¬¸ êµ¬ì„±
 SELECT NUM, NAME, PWD, EMAIL, SUBJECT, CONTENT, IPADDR, HITCOUNT
      , TO_CHAR(CREATED, 'YYYY-MM-DD') AS CREATED
 FROM TBL_BOARD
 WHERE NUM=3;
---> ÇÑ ÁÙ ±¸¼º
+--> í•œ ì¤„ êµ¬ì„±
 SELECT NUM, NAME, PWD, EMAIL, SUBJECT, CONTENT, IPADDR, HITCOUNT, TO_CHAR(CREATED, 'YYYY-MM-DD') AS CREATED FROM TBL_BOARD WHERE NUM=3
 ;
 
 
---¡Û Æ¯Á¤ °Ô½Ã¹°À» »èÁ¦ÇÏ´Â Äõ¸®¹® ±¸¼º
+--â—‹ íŠ¹ì • ê²Œì‹œë¬¼ì„ ì‚­ì œí•˜ëŠ” ì¿¼ë¦¬ë¬¸ êµ¬ì„±
 DELETE
   FROM TBL_BOARD
 WHERE NUM=12;
---> ÇÑÁÙ ±¸¼º
+--> í•œì¤„ êµ¬ì„±
 DELETE FROM TBL_BOARD WHERE NUM=12
 ;
 
 
---¡Û Æ¯Á¤ °Ô½Ã¹°À» ¼öÁ¤ÇÏ´Â Äõ¸®¹® ±¸¼º
---   (°Ô½Ã¹° »ó¼¼º¸±â ÆäÀÌÁö ¡æ Article.jsp ³»¿¡¼­ÀÇ Ã³¸®)
---   ÀÛ¼ºÀÚ, ÆÐ½º¿öµå, ÀÌ¸ÞÀÏ, Á¦¸ñ, ³»¿ë
+--â—‹ íŠ¹ì • ê²Œì‹œë¬¼ì„ ìˆ˜ì •í•˜ëŠ” ì¿¼ë¦¬ë¬¸ êµ¬ì„±
+--   (ê²Œì‹œë¬¼ ìƒì„¸ë³´ê¸° íŽ˜ì´ì§€ â†’ Article.jsp ë‚´ì—ì„œì˜ ì²˜ë¦¬)
+--   ìž‘ì„±ìž, íŒ¨ìŠ¤ì›Œë“œ, ì´ë©”ì¼, ì œëª©, ë‚´ìš©
 UPDATE TBL_BOARD
-SET NAME ='±è¹Î¼º', PWD='1234', EMAIL='kms@test.com', SUBJECT='¼öÁ¤Á¦¸ñ', CONTENT='¼öÁ¤³»¿ë'
+SET NAME ='ê¹€ë¯¼ì„±', PWD='1234', EMAIL='kms@test.com', SUBJECT='ìˆ˜ì •ì œëª©', CONTENT='ìˆ˜ì •ë‚´ìš©'
 WHERE NUM=5;
 --==>>
-UPDATE TBL_BOARD SET NAME ='±è¹Î¼º', PWD='1234', EMAIL='kms@test.com', SUBJECT='¼öÁ¤Á¦¸ñ', CONTENT='¼öÁ¤³»¿ë' WHERE NUM=5
+UPDATE TBL_BOARD SET NAME ='ê¹€ë¯¼ì„±', PWD='1234', EMAIL='kms@test.com', SUBJECT='ìˆ˜ì •ì œëª©', CONTENT='ìˆ˜ì •ë‚´ìš©' WHERE NUM=5
 ;
 
---(½º½º·Î ÇØº¸±â Áö±Ý ¿¬¶÷ÇÑ °Ô½Ã¹°ÀÌ 50¹ø)
---¡Û Æ¯Á¤ °Ô½Ã¹°(50)ÀÇ ´ÙÀ½ ¹øÈ£ ÀÐ¾î¿À´Â Äõ¸®¹® ±¸¼º
+--(ìŠ¤ìŠ¤ë¡œ í•´ë³´ê¸° ì§€ê¸ˆ ì—°ëžŒí•œ ê²Œì‹œë¬¼ì´ 50ë²ˆ)
+--â—‹ íŠ¹ì • ê²Œì‹œë¬¼(50)ì˜ ë‹¤ìŒ ë²ˆí˜¸ ì½ì–´ì˜¤ëŠ” ì¿¼ë¦¬ë¬¸ êµ¬ì„±
 SELECT MIN(NUM)
 FROM
 (
@@ -122,27 +122,62 @@ FROM
     FROM TBL_BOARD
     WHERE NUM > 50 
 );
--- ÀÌ·± ¹æ½ÄÀ¸·Î ÇÏ´Â°Å°í NVL Ãß°¡ÇÏ°í ¼­ºêÄõ¸® ¾µ ÇÊ¿ä°¡ ¾ø´Ù
+-- ì´ëŸ° ë°©ì‹ìœ¼ë¡œ í•˜ëŠ”ê±°ê³  NVL ì¶”ê°€í•˜ê³  ì„œë¸Œì¿¼ë¦¬ ì“¸ í•„ìš”ê°€ ì—†ë‹¤
 
 SELECT NVL(MIN(NUM), -1) NEXTNUM
   FROM TBL_BOARD
  WHERE NUM>50;
---> ÇÑ ÁÙ ±¸¼º
+--> í•œ ì¤„ êµ¬ì„±
 SELECT NVL(MIN(NUM), -1) NEXTNUM FROM TBL_BOARD WHERE NUM>50
 ;
 
---¡Û Æ¯Á¤ °Ô½Ã¹°(50)ÀÇ ÀÌÀü ¹øÈ£ ÀÐ¾î¿À´Â Äõ¸®¹® ±¸¼º
+--â—‹ íŠ¹ì • ê²Œì‹œë¬¼(50)ì˜ ì´ì „ ë²ˆí˜¸ ì½ì–´ì˜¤ëŠ” ì¿¼ë¦¬ë¬¸ êµ¬ì„±
 SELECT NVL(MAX(NUM), -1) BEFORENUM
   FROM TBL_BOARD
  WHERE NUM<50;
---> ÇÑ ÁÙ ±¸¼º
+--> í•œ ì¤„ êµ¬ì„±
 SELECT NVL(MAX(NUM), -1) BEFORENUM FROM TBL_BOARD WHERE NUM<50
 ;
 
 
 
 
+-----------------------------------------------------------------------------
+--â– â– â–  ì‹¤ìŠµ ì§„í–‰ê°„ í…ŒìŠ¤íŠ¸ â– â– â– --
+
+SELECT COUNT(*) AS COUNT
+  FROM TBL_BOARD;
+--==>> 0
 
 
 
+SELECT NUM, NAME, SUBJECT, HITCOUNT, CREATED  FROM(    SELECT ROWNUM RNUM, DATA.*    FROM    (        SELECT NUM, NAME, SUBJECT, HITCOUNT, TO_CHAR(CREATED, 'YYYY-MM-DD') AS CREATED        FROM TBL_BOARD        ORDER BY NUM DESC    ) DATA)
+;
+
+
+--â—‹ ê²Œì‹œë¬¼ ìž‘ì„±
+INSERT INTO TBL_BOARD(NUM, NAME, PWD, EMAIL, SUBJECT, CONTENT, IPADDR, HITCOUNT, CREATED)
+VALUES(1, 'ê¹€íƒœí˜•', '1234', 'K@TEST.COM', 'ìž‘ì„±í…ŒìŠ¤íŠ¸', 'ë‚´ìš©ì„ ìž‘ì„±', '211.238.142.154', 0, SYSDATE);
+--==>> 1 í–‰ ì´(ê°€) ì‚½ìž…ë˜ì—ˆìŠµë‹ˆë‹¤.
+
+
+--â—‹ ì»¤ë°‹
+COMMIT;
+--==>> ì»¤ë°‹ ì™„ë£Œ
+
+
+--â—‹ ê²Œì‹œë¬¼ ì‚­ì œ
+DELETE
+FROM TBL_BOARD;
+--==>> 1 í–‰ ì´(ê°€) ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.
+
+
+--â—‹ ê²€ìƒ‰ ë°ì´í„° ê°¯ìˆ˜ ì¡°íšŒ ì¿¼ë¦¬ë¬¸ êµ¬ì„±
+SELECT COUNT(*) AS COUNT
+FROM TBL_BOARD
+WHERE SUBJECT LIKE '%ìŒì‹%';
+--> í•œì¤„ êµ¬ì„±
+SELECT COUNT(*) AS COUNT FROM TBL_BOARD WHERE SUBJECT LIKE '%ìŒì‹%'
+;
+--==>> 180
 

@@ -11,8 +11,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sun.org.apache.bcel.internal.generic.NEWARRAY;
-
 public class BoardDAO
 {
 	// 주요 속성 구성
@@ -86,6 +84,7 @@ public class BoardDAO
 	
 	//DB 레코드의 갯수를 가져오는 메소드 정의 (지금은 전체~!!!)
 	// → 검색 기능을 작업하게 되면... 수정하게 될 메소드 (검색 대상~!!!)
+	/*
 	public int getDataCount() 
 	{
 		int result = 0;
@@ -96,14 +95,13 @@ public class BoardDAO
 		
 		try
 		{
-			sql = "SELECT COUNT(*) AS COUNT FROM TBL_BOARD";
+			sql = "SELECT COUNT(*) AS COUNT"
+					+ " FROM TBL_BOARD";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			
-			if(rs.next())
-			{
-				result = rs.getInt(1);
-			}
+			while (rs.next())
+				result = rs.getInt("COUNT");
 			rs.close();
 			stmt.close();
 			
@@ -113,11 +111,49 @@ public class BoardDAO
 		}
 		
 		return result;
-	} // end getDataCount()
+		
+	} // end getDataCount() 
+	*/
 	
-	// 특정 영역의(싲가번호 ~ 끝 번호)게시물의 목록을
+	// check~!!!
+	// 검색기능을 추가~!!!	제목, 작성자, 내용 입력값
+	public int getDataCount(String searchKey, String searchValue) 
+	{
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "";
+		
+		try
+		{
+			//check~!!!
+			searchValue = "%" + searchValue + "%";
+			
+			sql = "SELECT COUNT(*) AS COUNT"
+					+ " FROM TBL_BOARD"
+					+ " WHERE " + searchKey + " LIKE ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, searchValue);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next())
+				result = rs.getInt("COUNT");
+			rs.close();
+			pstmt.close();
+			
+		} catch (Exception e)
+		{
+			System.out.println(e.toString());
+		}
+		
+		return result;
+		
+	} // end getDataCount() 
+	// 특정 영역의(시작번호 ~ 끝 번호)게시물의 목록을
 	// 읽어오는 메소드 정의
 	// → 검색 기능을 작업하게 되면... 수정하게 될 메소드 (검색 대상~!!!)
+	/*
 	public List<BoardDTO> getLists(int start, int end)
 	{
 		List<BoardDTO> result = new ArrayList<BoardDTO>();
@@ -127,7 +163,7 @@ public class BoardDAO
 		
 		try
 		{
-			sql = "SELECT *";
+			sql = "SELECT NUM, NAME, SUBJECT, HITCOUNT, CREATED";
 			sql += "  FROM";
 			sql += "(";
 			sql += "    SELECT ROWNUM RNUM, DATA.*";
@@ -138,6 +174,7 @@ public class BoardDAO
 			sql += "        ORDER BY NUM DESC";
 			sql += "    ) DATA";
 			sql += ")";
+			sql += " WHERE RNUM>=? AND RNUM<=?";
 			
 			pstmt = conn.prepareStatement(sql);
 			
@@ -169,7 +206,67 @@ public class BoardDAO
 		
 		return result;
 	}// getLists(int start, int end)
+	*/
 	
+	// check~!!!
+	// 검색 기능 추가~!!!
+	public List<BoardDTO> getLists(int start, int end, String searchKey, String searchValue)
+	{
+		List<BoardDTO> result = new ArrayList<BoardDTO>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "";
+		
+		try
+		{
+			// check~!!!
+			searchValue = "%" + searchValue + "%";
+			
+			sql = "SELECT NUM, NAME, SUBJECT, HITCOUNT, CREATED";
+			sql += "  FROM";
+			sql += "(";
+			sql += "    SELECT ROWNUM RNUM, DATA.*";
+			sql += "    FROM";
+			sql += "    (";
+			sql += "        SELECT NUM, NAME, SUBJECT, HITCOUNT, TO_CHAR(CREATED, 'YYYY-MM-DD') AS CREATED";
+			sql += "        FROM TBL_BOARD";
+			sql += "        WHERE " + searchKey + " LIKE ?";	// 추가 구문~!!!
+			sql += "        ORDER BY NUM DESC";
+			sql += "    ) DATA";
+			sql += ")";
+			sql += " WHERE RNUM>=? AND RNUM<=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, searchValue);			// 추가 구문~!!!
+			pstmt.setInt(2, start);						// 인덱스 변경
+			pstmt.setInt(3, end);						// 인덱스 변경
+			
+			rs = pstmt.executeQuery();
+			while (rs.next())
+			{
+				BoardDTO dto = new BoardDTO();
+				
+				dto.setNum(rs.getInt("NUM"));
+				dto.setName(rs.getString("NAME"));
+				dto.setSubject(rs.getString("SUBJECT"));
+				dto.setHitCount(rs.getInt("HITCOUNT"));
+				dto.setCreated(rs.getString("CREATED"));
+				
+				result.add(dto);
+			}
+			rs.close();
+			pstmt.close();
+			
+			
+		} catch (Exception e)
+		{
+			System.out.println(e.toString());
+		}
+		
+		
+		return result;
+	}// getLists(int start, int end)
 	
 	// 특정 게시물 조회에 따른 조회 횟수 증가 메소드 정의
 	public int updateHitCount(int num)
