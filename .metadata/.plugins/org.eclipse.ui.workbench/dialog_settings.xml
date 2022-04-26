@@ -11,8 +11,9 @@
 		</list>
 	</section>
 	<section name="PreferencesImportWizard">
-		<item key="" value="C:\Downloads\11_JDBC_epf\jdbcStandard.epf"/>
+		<item key="" value="C:\Downloads\12_Web_epf\WebStandard.epf"/>
 		<list key="WizardPreferencesExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Downloads\12_Web_epf\WebStandard.epf"/>
 			<item value="C:\Downloads\11_JDBC_epf\jdbcStandard.epf"/>
 		</list>
 	</section>
