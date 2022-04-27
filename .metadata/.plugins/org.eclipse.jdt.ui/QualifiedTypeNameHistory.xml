@@ -27,10 +27,13 @@
 <fullyQualifiedTypeName name="java.lang.StringBuffer"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.test.BoardDTO"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="com.util.DBConn"/>
 <fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="java.sql.Statement"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="sec01_inheritancepolymorphism.EX01_Inheritance.Human"/>
+<fullyQualifiedTypeName name="sec01_inheritancepolymorphism.EX01_Inheritance.Student"/>
+<fullyQualifiedTypeName name="sec01_inheritancepolymorphism.EX01_Inheritance.Worker"/>
 </qualifiedTypeNameHistroy>
