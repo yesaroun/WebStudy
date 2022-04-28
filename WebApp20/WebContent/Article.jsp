@@ -156,14 +156,17 @@
 	</div><!-- close #bbsArticle -->				
 	
 	<div class="bbsArticle_noLine" style="text-align: right;" >
-		From : 211.238.142.151
+		<!-- From : 211.238.142.151 -->
+		From : <%=dto.getIpAddr() %>
 	</div><!-- close .bbsArticle_noLine -->
 	
 	<div id="bbsArticle_footer">
 	
 		<div id="leftFooter">
-			<input type="button" value="수정" class="btn2" />
-			<input type="button" value="삭제" class="btn2" />
+			<input type="button" value="수정" class="btn2" 
+			 onclick="javascript:location.href='<%=cp%>/Updated.jsp?num=<%=dto.getNum()%>&pageNum=<%=pageNum%>&status=1'"/>
+			<input type="button" value="삭제" class="btn2" 
+			 onclick="javascript:location.href='<%=cp%>/Updated.jsp?num=<%=dto.getNum()%>&pageNum=<%=pageNum%>&status=2'"/>
 		</div><!-- close #leftFooter -->
 	
 		<div id="rightFooter">

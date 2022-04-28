@@ -294,7 +294,7 @@ public class BoardDAO
 	
 	// 특정 게시물의 이전 게시물 번호를 얻어내는 메소드 정의
 	// 이전 게시물이 존재하지 않을 경우 -1 반환
-	public int getBeforeNum(int num)
+	public int getNextNum(int num)
 	{
 		int result = 0;
 		
@@ -326,7 +326,7 @@ public class BoardDAO
 
 	// 특정 게시물의 다음 게시물 번호를 얻어내는 메소드 정의
 	// 다음 게시물이 존재하지 않을 경우 -1 반환
-	public int getNextNum(int num)
+	public int getBeforeNum(int num)
 	{
 		int result = 0;
 		

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>WebApp00</display-name>
+  	<welcome-file-list>
+	    <welcome-file>index.html</welcome-file>
+	    <welcome-file>index.htm</welcome-file>
+	    <welcome-file>index.jsp</welcome-file>
+	    <welcome-file>default.html</welcome-file>
+	    <welcome-file>default.htm</welcome-file>
+	    <welcome-file>default.jsp</welcome-file>
+  	</welcome-file-list>
+  
+	<!-- Test1 클래스 → Servlet 구성 ① -->
+	<!--
+	<servlet>
+		<servlet-name>kimjeongyong</servlet-name>
+		<servlet-class>com.svt.Test1</servlet-class>		(여기까지 서블릿 구성)
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>kimjeongyong</servlet-name>
+		<url-pattern>/test1</url-pattern>
+	</servlet-mapping>
+	-->
+	
+	<!-- Test1 클래스 → Servlet 구성 ② (이 방식은 xml 에서 구성을 얼마든지 바꿀 수 있다.)-->
+	<servlet>
+		<servlet-name>test1Servlet</servlet-name>
+		<servlet-class>com.svt.Test1</servlet-class>
+		<init-param>
+			<param-name>name</param-name>
+			<param-value>김정용</param-value>
+		</init-param>
+		<init-param>
+			<param-name>age</param-name>
+			<param-value>20</param-value>
+		</init-param>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>test1Servlet</servlet-name>
+		<url-pattern>/test1</url-pattern>
+	</servlet-mapping>
+	
+	
+	<context-param>
+		<param-name>type</param-name>
+		<param-value>유머러스</param-value>
+	</context-param>
+	
+	<servlet>
+		<servlet-name>test2Servlet</servlet-name>
+		<servlet-class>com.svt.Test2</servlet-class>
+	</servlet>
+	<!-- Test2를 찾아서 서블릿 이름 붙임 -->
+	
+	<servlet-mapping>
+		<servlet-name>test2Servlet</servlet-name>
+		<url-pattern>/test2</url-pattern>
+	</servlet-mapping>
+	<!-- url이 이렇다면 저 객체를 실행 -->
+	
+</web-app>
