@@ -6,6 +6,17 @@ public class MemberDTO
 	private String tel;
 	private String addr;
 	
+	public MemberDTO()
+	{
+	}
+	
+	public MemberDTO(String name, String tel, String addr)
+	{
+		this.name = name;
+		this.tel = tel;
+		this.addr = addr;
+	}
+	
 	// getter / setter
 	public String getName()
 	{
