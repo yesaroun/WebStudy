@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>JQApp02</name>
+	<name>AjaxApp</name>
 	<comment></comment>
 	<projects>
-		<project>standard</project>
 		<project>jstl</project>
+		<project>standard</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
