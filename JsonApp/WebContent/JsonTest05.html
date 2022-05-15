@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JsonTest05.html</title>
+<script type="text/javascript">
+
+	var myJsonObject5 =
+	{
+		"test" : function(args)
+		{
+			alert("Method test : " + args);
+		}
+	}
+	
+	var t = myJsonObject5.test;
+
+</script>
+</head>
+<body>
+
+<form action="">
+	<input type="button" value="click1" onclick="t('minsumg')" />
+	<!-- Method test : minsumg -->
+	
+	<input type="button" value="click2" 
+		onclick="eval('var a=' + myJsonObject5.test); a('moonjung')" />
+	<!-- Method test : moonjung -->
+	
+	<input type="button" value="click3"
+		onclick="eval( '(' + myJsonObject5.test + ')(\'sunha\')' )" />
+	<!-- myJsonObject5.test('sunha') --> <!-- 위에는 이렇게 작성한 구문이다. -->
+	<!-- Method test : sunha -->
+</form>
+
+</body>
+</html>
