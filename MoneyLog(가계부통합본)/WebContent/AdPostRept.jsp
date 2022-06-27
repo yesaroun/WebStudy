@@ -42,27 +42,25 @@
                             <!-- 신고접수 -->
                             <div class="col-md-12">
                                 <div class="list-group">
-                                    <div class="list-group">
                                     <br><br>
                                     <h4>[ 게시글 ] 신고 접수</h4>
-                                        <div class="list-group-item">
-                                            <table class="table">
-                                                <tbody>
-                                                    <tr>
-                                                        <th colspan="3">신고 번호</th>
-                                                        <th colspan="3">접수 일자</th>
-                                                        <th colspan="3">게시글 번호</th>
-                                                        <th colspan="3" class="mobile">신고자</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td colspan="3">33</td>
-                                                        <td colspan="3">2020-05-20</td>
-                                                        <td colspan="3"><a href="./AdPostInfo.jsp">2032</a></td>
-                                                        <td colspan="3" class="mobile">test@test.com</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                    <div class="list-group-item">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <th colspan="3">신고 번호</th>
+                                                    <th colspan="3">접수 일자</th>
+                                                    <th colspan="3">게시글 번호</th>
+                                                    <th colspan="3" class="mobile">신고자</th>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3">33</td>
+                                                    <td colspan="3">2020-05-20</td>
+                                                    <td colspan="3"><a href="./AdPostInfo.jsp">2032</a></td>
+                                                    <td colspan="3" class="mobile">test@test.com</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -156,7 +154,7 @@
                                                 <!-- 돌아가기 버튼 -->
                                                 <tr>
                                                     <td colspan="12">
-                                                        <button class="btn" style="width: 100%; background-color: #F5CAC3;" data-toggle="modal" data-target="#modal" onclick="location.href='AdPostReptList.jsp'">돌아가기</button>
+                                                        <button class="btn return-btn" data-toggle="modal" data-target="#modal" onclick="location.href='AdPostReptList.jsp'">돌아가기</button>
                                                     </td>
                                                 </tr>
                                             </tbody>

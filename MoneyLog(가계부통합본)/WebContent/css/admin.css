@@ -165,11 +165,20 @@ main { margin-left: 250px; margin-top: 55px; margin-right: 100px;}
 #adPostRept .send-content-btn:hover {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);}
 #adPostRept .approve-btn {width: 49%;}
 #adPostRept .deny-btn {width: 50%; background-color: #F7EDE2;}
+#adPostRept .return-btn {width: 100%; background-color: #F5CAC3;}
 
 /*adCmntReptList.jsp*/
 #adCmntReptList table {text-align: center;}
 #adCmntReptList table th {font-weight: 700; background-color: #F7EDE2; }
 #adCmntReptList .list-group-item {border-radius: 4px; margin-top: 8px; margin-bottom: 20px;}
+
+/*활성화된 버튼*/
+.unactivate-btn {width:100px; background-color: #F7EDE2; color: #000000;}
+.unactivate-btn:hover { background-color: #F7EDE2; color: #000000;}
+
+/*비활성화 버튼*/
+.activate-btn {width:100px; background-color: #F5CAC3; color: #000000;}
+.activate-btn {background-color: #F5CAC3; color: #000000;}
 
 /*AdCmntRept.jsp*/
 #adCmntRept table {text-align: center;}
